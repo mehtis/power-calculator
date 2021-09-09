@@ -1,0 +1,20 @@
+{
+  "name": "power-calculator",
+  "version": "0.0.1",
+  "main": "src/app.js",
+  "scripts": {
+    "watch": "nodemon src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Niko Mehtonen",
+  "license": "MIT",
+  "description": "",
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12",
+    "standard": "^16.0.3"
+  }
+}
