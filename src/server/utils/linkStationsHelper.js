@@ -1,3 +1,7 @@
+/*
+** Default link stations
+** This can be moved to it's own file if there's need to be able to override it easily
+*/
 const linkStations = [
   {
     x: 0,
@@ -16,15 +20,21 @@ const linkStations = [
   }
 ]
 
+/**
+ * Finds the linkstation closest to the given x,y coordinates
+ * @param {int} x X-coordinate
+ * @param {int} y Y-coordinate
+ * @returns Coordinates and power of closest link station to the given coordinates.
+ */
 const calculateMostPower = (x, y) => {
   let result = { x: -1, y: -1, power: 0 }
-  linkStations.forEach(station => {
-    const distance = Math.sqrt(Math.pow(station.x - x, 2) + Math.pow(station.y - y, 2))
-    const stationTooFar = distance > station.reach
-    if (!stationTooFar) {
-      const power = Math.pow(station.reach - distance, 2)
+  linkStations.forEach(linkStation => {
+    const distanceToLinkStation = Math.sqrt(Math.pow(linkStation.x - x, 2) + Math.pow(linkStation.y - y, 2))
+    const linkStationIsWithinReachOfGivenCoordinates = distanceToLinkStation <= linkStation.reach
+    if (linkStationIsWithinReachOfGivenCoordinates) {
+      const power = Math.pow(linkStation.reach - distanceToLinkStation, 2)
       if (power > result.power) {
-        result = { ...station, power }
+        result = { ...linkStation, power }
       }
     }
   })
