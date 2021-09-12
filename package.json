@@ -2,13 +2,18 @@
   "name": "power-calculator",
   "version": "0.0.1",
   "main": "src/app.js",
+  "engines": {
+    "node": ">=16.*",
+    "npm": ">=7.*"
+  },
   "scripts": {
     "watch": "nodemon src/server/app.js",
+    "start": "node src/server/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Niko Mehtonen",
   "license": "MIT",
-  "description": "",
+  "description": "Small program for calculating the best link station to given coordinates",
   "dependencies": {
     "express": "^4.17.1",
     "morgan": "^1.10.0"
