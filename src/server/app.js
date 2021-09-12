@@ -4,7 +4,7 @@ const morgan = require('morgan')
 const powerCalculation = require('./handlers/powerCalculation')
 
 const app = express()
-const port = 8081
+const port = process.env.PORT || 8081
 
 app.use(morgan('short'))
 
