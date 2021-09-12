@@ -13,12 +13,6 @@
     "lint": "standard",
     "prepare": "husky install"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint",
-      "pre-push": "npm run lint && npm test"
-    }
-  },
   "author": "Niko Mehtonen",
   "license": "MIT",
   "description": "A small Express app for calculating the best link station to given coordinates",
