@@ -20,6 +20,10 @@ const linkStations = [
   }
 ]
 
+const calculateDistanceBetweenPoints = (x1, y1, x2, y2) => Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2))
+
+const calculatePowerOverGivenDistance = (reach, distance) => Math.pow(reach - distance, 2)
+
 /**
  * Finds the linkstation closest to the given x,y coordinates
  * @param {int} x X-coordinate
@@ -29,10 +33,10 @@ const linkStations = [
 const calculateLinkStationWithMostPowerForGivenCoordinates = (x, y) => {
   let result = { x: -1, y: -1, power: 0 }
   linkStations.forEach(linkStation => {
-    const distanceToLinkStation = Math.sqrt(Math.pow(linkStation.x - x, 2) + Math.pow(linkStation.y - y, 2))
+    const distanceToLinkStation = calculateDistanceBetweenPoints(linkStation.x, linkStation.y, x, y)
     const linkStationIsWithinReachOfGivenCoordinates = distanceToLinkStation <= linkStation.reach
     if (linkStationIsWithinReachOfGivenCoordinates) {
-      const power = Math.pow(linkStation.reach - distanceToLinkStation, 2)
+      const power = calculatePowerOverGivenDistance(linkStation.reach, distanceToLinkStation)
       if (power > result.power) {
         result = { ...linkStation, power }
       }
