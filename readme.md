@@ -5,11 +5,14 @@
 * npm > 7 (preferred)
 
 ## Setup
-`npm i`
+`npm i` to install dependencies
 
 ## Running
-For development: `npm run watch`
 For production use: `npm start`
 
 ## Development
+`npm run watch` to run in development mode
+
+`npm test` for running tests
+
 Uses StandardJS for linting. In VSCode you can install an extension for automatic linting.
