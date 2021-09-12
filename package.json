@@ -10,7 +10,8 @@
     "watch": "nodemon src/server/app.js",
     "start": "node src/server/app.js",
     "test": "jest",
-    "lint": "standard"
+    "lint": "standard",
+    "prepare": "husky install"
   },
   "husky": {
     "hooks": {
