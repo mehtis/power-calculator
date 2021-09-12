@@ -1,4 +1,7 @@
 # Power calculator
+A small Express app for calculating the best link station to given coordinates
+
+Latest version from main-branch running on https://power-calculator.herokuapp.com/
 
 ## Prerequisites
 * node > 16 (preferred)
