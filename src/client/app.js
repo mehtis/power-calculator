@@ -1,7 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-const title = 'Hello From React! Use /api/ for your power calculator needs'
+
+import PowerCalculator from './components/PowerCalculator'
+
 ReactDOM.render(
-  <div>{title}</div>,
+  <PowerCalculator />,
   document.getElementById('app')
 )
