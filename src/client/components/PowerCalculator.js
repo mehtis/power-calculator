@@ -8,22 +8,26 @@ const PowerCalculator = () => {
   const [y, setY] = useState(0)
   const [isFetching, setIsFetching] = useState(false)
   const [calculationResult, setcalculationResult] = useState('')
+  const [fetchError, setFetchError] = useState(null)
+
+  const clearFetchError = () => setFetchError(null)
 
   const onChangeXInput = event => setX(event.target.value)
   const onChangeYInput = event => setY(event.target.value)
 
   const fetchBestStation = useCallback(async () => {
+    clearFetchError()
     setIsFetching(true)
     const url = `/api/power?x=${x}&y=${y}`
     try {
       const result = await request(url)
       setcalculationResult(result.data)
     } catch (error) {
-
+      setFetchError(error.message)
     } finally {
       setIsFetching(false)
     }
-  }, [x, y, isFetching])
+  }, [x, y, isFetching, fetchError])
 
   return (
     <div className='power-calculator'>
@@ -72,6 +76,7 @@ const PowerCalculator = () => {
       >
         Calculate
       </Button>
+      {fetchError && <p className='error'>{fetchError}</p>}
       {calculationResult && <p>{calculationResult}</p>}
     </div>
   )

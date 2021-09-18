@@ -8,16 +8,20 @@ import { calculateLinkStationWithMostPowerForGivenCoordinates, defaultLinkStatio
  */
 const powerCalculations = Router()
   .get('/power', (req, res) => {
-    const x = parseInt(req.query.x) || 0
-    const y = parseInt(req.query.y) || 0
+    const x = parseInt(req.query.x)
+    const y = parseInt(req.query.y)
 
+    if (isNaN(x) || isNaN(y)) {
+      const invalidInput = 'Invalid input'
+      return res.status(400).send(invalidInput)
+    }
     const coordinates = calculateLinkStationWithMostPowerForGivenCoordinates(x, y)
     if (!coordinates) {
       const noStationCloseEnoughResult = `No link station within reach for point ${x}, ${y}`
-      res.status(200).send(noStationCloseEnoughResult)
+      return res.status(200).send(noStationCloseEnoughResult)
     } else {
       const result = `Best link station for point ${x},${y} is ${coordinates.x},${coordinates.y} with power ${coordinates.power}`
-      res.status(200).send(result)
+      return res.status(200).send(result)
     }
   })
 
