@@ -13,7 +13,7 @@ app.set('views', join(__dirname, '../public'))
 
 app.use('/api', powerCalculation)
 
-app.use('/dist', express.static(join(__dirname, '../../dist/')))
+app.use('/dist', express.static(join(__dirname, '../../dist')))
 
 app.get('*', (req, res) => res.render('index'))
 
