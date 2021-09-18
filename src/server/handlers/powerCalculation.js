@@ -1,15 +1,12 @@
-const express = require('express')
+import { Router } from 'express'
 
-const {
-  calculateLinkStationWithMostPowerForGivenCoordinates,
-  defaultLinkStations
-} = require('../utils/linkStationsHelper')
+import { calculateLinkStationWithMostPowerForGivenCoordinates, defaultLinkStations } from '../utils/linkStationsHelper'
 
 /**
  * API for getting the best link station and power from it for given coordinates
  * Assumes default coordinate of 0 for x and y if not given
  */
-const powerCalculations = express.Router()
+const powerCalculations = Router()
   .get('/power', (req, res) => {
     const x = parseInt(req.query.x) || 0
     const y = parseInt(req.query.y) || 0
@@ -31,4 +28,4 @@ const powerCalculations = express.Router()
     res.status(200).send(`Available link stations are: ${JSON.stringify(defaultLinkStations)}. Use /power?x=0&y=0 (where 0 is your desired coordinate) to calculate best link station and available power.`)
   })
 
-module.exports = powerCalculations
+export default powerCalculations
