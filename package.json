@@ -1,6 +1,6 @@
 {
   "name": "power-calculator",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "src/app.js",
   "engines": {
     "node": ">=16.*",
