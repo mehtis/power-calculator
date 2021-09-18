@@ -3,7 +3,10 @@ import PropTypes from 'prop-types'
 
 const ErrorBox = props => {
   return (
-    <p className='error'>
+    <p
+      className='error'
+      style={{ color: 'red' }}
+    >
       {props.message}
     </p>
   )
