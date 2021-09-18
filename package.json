@@ -17,7 +17,7 @@
   },
   "author": "Niko Mehtonen",
   "license": "MIT",
-  "description": "A small Express app for calculating the best link station to given coordinates",
+  "description": "A small React and Express app for calculating the best link station to given coordinates",
   "dependencies": {
     "@material-ui/core": "^4.12.3",
     "axios": "^0.21.4",
