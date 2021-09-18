@@ -2,6 +2,7 @@ import React, { useCallback, useState } from 'react'
 import { Input, Button, InputLabel } from '@material-ui/core'
 
 import ErrorBox from './ErrorBox'
+import CalculatorResults from './CalculatorResults'
 
 import request from '../utils/request'
 
@@ -9,7 +10,9 @@ const PowerCalculator = () => {
   const [x, setX] = useState(0)
   const [y, setY] = useState(0)
   const [isFetching, setIsFetching] = useState(false)
-  const [calculationResult, setcalculationResult] = useState('')
+  const [fetchPerformed, setFetchPerformed] = useState(false)
+  const [calculationResult, setcalculationResult] = useState(null)
+  const [calculationSearchCoordinates, setcalculationSearchCoordinates] = useState(null)
   const [fetchError, setFetchError] = useState(null)
 
   const clearFetchError = () => setFetchError(null)
@@ -23,13 +26,15 @@ const PowerCalculator = () => {
     const url = `/api/power?x=${x}&y=${y}`
     try {
       const result = await request(url)
-      setcalculationResult(result.data)
+      setcalculationResult(result.data || null)
+      setcalculationSearchCoordinates({ x, y })
+      setFetchPerformed(true)
     } catch (error) {
       setFetchError(error.message)
     } finally {
       setIsFetching(false)
     }
-  }, [x, y, isFetching, fetchError])
+  }, [x, y, isFetching, fetchPerformed, calculationResult, calculationSearchCoordinates, fetchError])
 
   return (
     <div className='power-calculator'>
@@ -81,7 +86,11 @@ const PowerCalculator = () => {
       <ErrorBox
         message={fetchError}
       />
-      {calculationResult && <p>{calculationResult}</p>}
+      {fetchPerformed &&
+        <CalculatorResults
+          calculationSearchCoordinates={calculationSearchCoordinates}
+          resultCoordinates={calculationResult}
+        />}
     </div>
   )
 }
