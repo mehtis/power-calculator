@@ -6,7 +6,7 @@ import CalculatorResults from './CalculatorResults'
 
 import request from '../utils/request'
 
-const PowerCalculator = () => {
+const PowerCalculatorView = () => {
   const [x, setX] = useState(0)
   const [y, setY] = useState(0)
   const [isFetching, setIsFetching] = useState(false)
@@ -95,4 +95,4 @@ const PowerCalculator = () => {
   )
 }
 
-export default PowerCalculator
+export default PowerCalculatorView

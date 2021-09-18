@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import PowerCalculator from './components/PowerCalculator'
+import PowerCalculatorView from './components/PowerCalculatorView'
 
 ReactDOM.render(
-  <PowerCalculator />,
+  <PowerCalculatorView />,
   document.getElementById('app')
 )
