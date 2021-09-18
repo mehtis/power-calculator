@@ -17,13 +17,6 @@ const powerCalculations = Router()
     }
     const coordinates = calculateLinkStationWithMostPowerForGivenCoordinates(x, y)
     return res.status(200).send(coordinates)
-    if (!coordinates) {
-      const noStationCloseEnoughResult = `No link station within reach for point ${x}, ${y}`
-      return res.status(200).send(noStationCloseEnoughResult)
-    } else {
-      const result = `Best link station for point ${x},${y} is ${coordinates.x},${coordinates.y} with power ${coordinates.power}`
-      return res.status(200).send(result)
-    }
   })
 
   /**
