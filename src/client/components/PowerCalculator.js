@@ -12,7 +12,6 @@ const PowerCalculator = () => {
   const onChangeXInput = event => setX(event.target.value)
   const onChangeYInput = event => setY(event.target.value)
 
-  // TODO: Input values not updated in time
   const fetchBestStation = useCallback(async () => {
     setIsFetching(true)
     const url = `/api/power?x=${x}&y=${y}`
@@ -24,7 +23,7 @@ const PowerCalculator = () => {
     } finally {
       setIsFetching(false)
     }
-  }, [isFetching])
+  }, [x, y, isFetching])
 
   return (
     <div className='power-calculator'>
