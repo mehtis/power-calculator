@@ -1,10 +1,10 @@
 /* eslint-env jest */
 
-const {
+import {
   calculateDistanceBetweenPoints,
   calculatePowerOverGivenDistance,
   calculateLinkStationWithMostPowerForGivenCoordinates
-} = require('../linkStationsHelper')
+} from '../linkStationsHelper'
 
 const X1_DEFAULT = 0
 const Y1_DEFAULT = 0

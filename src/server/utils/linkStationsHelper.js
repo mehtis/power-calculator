@@ -2,7 +2,7 @@
 ** Default link stations
 ** This can be moved to it's own file if there's need to be able to override it easily
 */
-const defaultLinkStations = [
+export const defaultLinkStations = [
   {
     x: 0,
     y: 0,
@@ -20,9 +20,9 @@ const defaultLinkStations = [
   }
 ]
 
-const calculateDistanceBetweenPoints = (x1, y1, x2, y2) => Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2))
+export const calculateDistanceBetweenPoints = (x1, y1, x2, y2) => Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2))
 
-const calculatePowerOverGivenDistance = (reach, distance) => reach >= distance
+export const calculatePowerOverGivenDistance = (reach, distance) => reach >= distance
   ? Math.pow(reach - distance, 2)
   : 0
 
@@ -32,7 +32,7 @@ const calculatePowerOverGivenDistance = (reach, distance) => reach >= distance
  * @param {int} y Y-coordinate
  * @returns Coordinates and power of closest link station to the given coordinates.
  */
-const calculateLinkStationWithMostPowerForGivenCoordinates = (x, y, linkStations = defaultLinkStations) => {
+export const calculateLinkStationWithMostPowerForGivenCoordinates = (x, y, linkStations = defaultLinkStations) => {
   let result = { x: -1, y: -1, power: 0 }
   linkStations.forEach(linkStation => {
     const distanceToLinkStation = calculateDistanceBetweenPoints(linkStation.x, linkStation.y, x, y)
@@ -48,7 +48,4 @@ const calculateLinkStationWithMostPowerForGivenCoordinates = (x, y, linkStations
   }
 }
 
-module.exports.defaultLinkStations = defaultLinkStations
-module.exports.calculateDistanceBetweenPoints = calculateDistanceBetweenPoints
-module.exports.calculatePowerOverGivenDistance = calculatePowerOverGivenDistance
-module.exports.calculateLinkStationWithMostPowerForGivenCoordinates = calculateLinkStationWithMostPowerForGivenCoordinates
+export default defaultLinkStations
