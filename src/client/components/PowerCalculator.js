@@ -1,6 +1,8 @@
 import React, { useCallback, useState } from 'react'
 import { Input, Button, InputLabel } from '@material-ui/core'
 
+import ErrorBox from './ErrorBox'
+
 import request from '../utils/request'
 
 const PowerCalculator = () => {
@@ -76,7 +78,9 @@ const PowerCalculator = () => {
       >
         Calculate
       </Button>
-      {fetchError && <p className='error'>{fetchError}</p>}
+      <ErrorBox
+        message={fetchError}
+      />
       {calculationResult && <p>{calculationResult}</p>}
     </div>
   )
