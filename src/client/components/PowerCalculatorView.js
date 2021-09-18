@@ -1,8 +1,9 @@
 import React, { useCallback, useState } from 'react'
-import { Input, Button, InputLabel } from '@material-ui/core'
+import { Button } from '@material-ui/core'
 
 import ErrorBox from './ErrorBox'
 import CalculatorResults from './CalculatorResults'
+import CoordinateInput from './CoordinateInput'
 
 import request from '../utils/request'
 
@@ -39,42 +40,22 @@ const PowerCalculatorView = () => {
   return (
     <div className='power-calculator'>
       <div className='inputs'>
-        <div className='input'>
-          <InputLabel
-            htmlFor='input-x'
-            required
-          >
-            X
-          </InputLabel>
-          <Input
-            name='input-x'
-            id='input-x'
-            label='X'
-            type='number'
-            inputProps={{ min: 0, max: 100 }}
-            required
-            value={x}
-            onChange={onChangeXInput}
-          />
-        </div>
-        <div className='input'>
-          <InputLabel
-            htmlFor='input-y'
-            required
-          >
-            Y
-          </InputLabel>
-          <Input
-            name='input-y'
-            id='input-y'
-            label='Y'
-            type='number'
-            inputProps={{ min: 0, max: 100 }}
-            required
-            value={y}
-            onChange={onChangeYInput}
-          />
-        </div>
+        <CoordinateInput
+          id='input-x'
+          name='input-x'
+          inputProps={{ min: 0, max: 100 }}
+          required
+          value={x}
+          onChange={(event) => onChangeXInput(event)}
+        />
+        <CoordinateInput
+          id='input-y'
+          name='input-y'
+          inputProps={{ min: 0, max: 100 }}
+          required
+          value={y}
+          onChange={(event) => onChangeYInput(event)}
+        />
       </div>
       <Button
         variant='contained'
