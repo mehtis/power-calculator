@@ -40,8 +40,7 @@ const PowerCalculator = () => {
             id='input-x'
             label='X'
             type='number'
-            min='0'
-            max='100'
+            inputProps={{ min: 0, max: 100 }}
             required
             value={x}
             onChange={onChangeXInput}
@@ -59,8 +58,7 @@ const PowerCalculator = () => {
             id='input-y'
             label='Y'
             type='number'
-            min='0'
-            max='100'
+            inputProps={{ min: 0, max: 100 }}
             required
             value={y}
             onChange={onChangeYInput}
