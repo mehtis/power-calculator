@@ -11,10 +11,12 @@ Latest version from main-branch running on https://power-calculator.herokuapp.co
 `npm i` to install dependencies
 
 ## Running
-For production use: `npm start`
-
-## Development
-`npm run watch` to run in development mode
+### Development
+`npm run watch` to run backend in development mode
+`npm run webpack` to automatically build frontend in development mode
+### For production use: 
+First build app with ``npm build`
+Then you can run it with `npm start`
 
 `npm test` for running tests
 
